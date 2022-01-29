@@ -73,7 +73,7 @@ namespace CycriptGUI.LibIMobileDevice
 
             device.Dispose();
 
-            double byteCapacity = Convert.ToDouble(informationList[informationList.IndexOf("FSTotalBytes") + 1]);
+            double byteCapacity = Convert.ToDouble(informationList[informationList.IndexOf("FSTotalBytes") + 2]);
             capacity = Math.Round(byteCapacity / (Math.Pow(2, 30)), 1);
 
             return true;

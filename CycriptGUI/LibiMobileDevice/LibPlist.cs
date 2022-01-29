@@ -7,7 +7,7 @@ namespace CycriptGUI.LibIMobileDevice
 {
     class LibPlist
     {
-        const string LIBPLIST_DLL_PATH = @"libplist.dll";
+        const string LIBPLIST_DLL_PATH = @"F:\CycriptGUI\CycriptGUI\LibiMobileDevice\libplist-2.0.dll";
 
         #region DLLImport
         [DllImport(LIBPLIST_DLL_PATH, CallingConvention = CallingConvention.Cdecl)]

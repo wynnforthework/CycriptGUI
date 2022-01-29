@@ -95,6 +95,9 @@ namespace CycriptGUI.LibIMobileDevice
 
         [DllImport(LibiMobileDevice.LIBIMOBILEDEVICE_DLL_PATH, CallingConvention = CallingConvention.Cdecl)]
         static extern void instproxy_client_options_add(IntPtr clientOptions, string key, string value, IntPtr zero);
+
+        [DllImport(LibiMobileDevice.LIBIMOBILEDEVICE_DLL_PATH, CallingConvention = CallingConvention.Cdecl)]
+        static extern InstproxyError instproxy_install(IntPtr instProxyClient,string path, IntPtr clientOptions,IntPtr statusCallBack,IntPtr userData);
         #endregion
 
         #region Functions
@@ -171,6 +174,26 @@ namespace CycriptGUI.LibIMobileDevice
                 appList.Add(newApp);
             }
 
+            return true;
+        }
+
+        public static bool Install(iDevice device, string path)
+        {
+            // Must connect to device and to installation proxy before using
+
+            IntPtr clientOptions = instproxy_client_options_new();
+            instproxy_client_options_add(clientOptions, "ApplicationType", "Any", IntPtr.Zero);
+
+            OnProgressChanged(EventArgs.Empty);
+
+            InstproxyError returnCode = instproxy_install(device.InstallationProxyClient, path, clientOptions, IntPtr.Zero, IntPtr.Zero);
+            
+            instproxy_client_options_free(clientOptions);
+
+            if (returnCode != InstproxyError.INSTPROXY_E_SUCCESS)
+            {
+                return false;
+            }
             return true;
         }
 

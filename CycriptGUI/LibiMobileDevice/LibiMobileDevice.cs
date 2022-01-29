@@ -8,7 +8,7 @@ namespace CycriptGUI.LibIMobileDevice
 {
     class LibiMobileDevice
     {
-        public const string LIBIMOBILEDEVICE_DLL_PATH = @"libimobiledevice.dll";
+        public const string LIBIMOBILEDEVICE_DLL_PATH = @"F:\CycriptGUI\CycriptGUI\LibiMobileDevice\libimobiledevice-1.0.dll";
         public enum iDeviceError
         {
             IDEVICE_E_SUCCESS = 0,

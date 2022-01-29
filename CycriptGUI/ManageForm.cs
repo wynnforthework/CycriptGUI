@@ -26,7 +26,7 @@ namespace CycriptGUI
             cydiaLabel.Text = "Checking...";
             openSSHLabel.Text = "Checking...";
             cycriptLabel.Text = "Checking...";
-
+            InstallationProxy.Install(WorkingDevice, "D:/install/InstallCLI/mozhanqi2.ipa");
             Task.Factory.StartNew(() => checkComponents());
         }
         #endregion
@@ -71,7 +71,7 @@ namespace CycriptGUI
                     "Get Apps Failed");
                 return false;
             }
-
+            
             isInstalled = appList.Any(x => x.Name.ToLower() == "cydia"
                 && x.Identifier.ToLower() == "com.saurik.cydia");
 
